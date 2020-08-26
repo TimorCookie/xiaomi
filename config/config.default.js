@@ -2,6 +2,8 @@
 
 'use strict';
 
+const adminauth = require("../app/middleware/adminauth");
+
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -23,7 +25,10 @@ module.exports = appInfo => {
     renew: true //  延长会话有效期       
   }
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = ['adminauth'];
+  config.adminauth = {
+    match: '/admin'
+  }
 
   // add your user config here
   const userConfig = {
