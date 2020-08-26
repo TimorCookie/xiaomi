@@ -9,6 +9,8 @@ module.exports = app => {
 
   router.get('/admin/login', controller.admin.login.index);
   router.get('/admin/doLogin', controller.admin.login.doLogin);
+  // 验证码
+  router.get('/admin/verify', controller.admin.base.verify);
   // admin 管理员相关路由
   router.get('/admin/manager', controller.admin.manager.index);
   router.get('/admin/manager/add', controller.admin.manager.add);
