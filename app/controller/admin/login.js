@@ -26,6 +26,10 @@ class LoginController extends baseController {
     }
     // await this.success('/admin/login')
   }
+  async loginOut (){
+    this.ctx.session.userinfo = null
+    this.ctx.redirect('/admin/login')
+  }
 }
 
 module.exports = LoginController;
