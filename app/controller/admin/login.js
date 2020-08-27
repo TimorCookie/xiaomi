@@ -7,11 +7,14 @@ class LoginController extends baseController {
     await this.ctx.render('admin/login.html')
   }
   async doLogin() {
-    await this.success('/admin/login')
+    const { username, password, verify } = this.ctx.request.body;
+    const code = this.ctx.session.code
+    // 校验验证码和账户密码是否正确
+    if(verify.toUpperCase() !== code.toUpperCase()) {
+      await this.error('/admin/login','验证码错误!')
+    }
+    // await this.success('/admin/login')
   }
-  // async error() {
-  //   await this.error('/admin/login')
-  // }
 }
 
 module.exports = LoginController;

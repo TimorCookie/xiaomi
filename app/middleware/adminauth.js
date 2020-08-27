@@ -8,7 +8,7 @@ module.exports = options => {
       await next()
     } else {
       const pathname = url.parse(ctx.request.url).pathname
-      if (pathname == '/admin/login' || pathname == '/admin/verify' || pathname == 'doLogin') {
+      if (pathname == '/admin/login' || pathname == '/admin/verify' || pathname == '/admin/doLogin') {
         await next()
       } else {
         ctx.redirect('/admin/login')

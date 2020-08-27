@@ -40,7 +40,15 @@ module.exports = appInfo => {
       '.html': 'ejs',
     },
   }
-
+  // 配置数据库
+  exports.mongoose = {
+    client: {
+      url: 'mongodb://xiaomi:123456@127.0.0.1:27017/eggxiaomi',
+      options: {},
+      // mongoose global plugins, expected a function or an array of function and options
+      // plugins: [createdPlugin, [updatedPlugin, pluginOptions]],
+    },
+  };
   return {
     ...config,
     ...userConfig,
