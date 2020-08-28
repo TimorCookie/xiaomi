@@ -11,7 +11,10 @@ class RoleController extends BaseController {
     await this.ctx.render('admin/role/add.html')
   }
   async doAdd() {
-    console.log(this.ctx.request.body)
+    // console.log(this.ctx.request.body)
+    const { title, description } = this.ctx.request.body
+    const newRole = new this.ctx.model.Role({title, description})
+    await newRole.save()
     await this.success('/admin/role','增加角色成功');
   }
   async edit() {
