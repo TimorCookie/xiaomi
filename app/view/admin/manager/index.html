@@ -43,7 +43,10 @@
               <td><%=managerList[i].role[0].title%></td>
               <td><%=managerList[i].mobile%></td>
               <td><%=managerList[i].email%></td>
-              <td class="text-center">修改 删除</td>
+              <td class="text-center">
+                <a href="/admin/manager/edit?id=<%=managerList[i]._id%>">修改</a>
+                <a href="/admin/manager/edit">删除</a>
+              </td>
             </tr>
             <%}%>
           </tbody>

@@ -13,7 +13,6 @@ class ManagerController extends BaseController {
         }
       }
     ])
-    console.log(managerList[0])
     await this.ctx.render('admin/manager/index.html', { managerList })
     // this.ctx.body = '管理员列表'
   }
@@ -37,7 +36,45 @@ class ManagerController extends BaseController {
     }
   }
   async edit() {
-    await this.ctx.render('admin/manager/edit.html')
+    const id = this.ctx.request.query.id
+    const managerInfo = await this.ctx.model.Admin.find({
+      _id: id
+    })
+    const roleInfo = await this.ctx.model.Role.find({})
+    await this.ctx.render('admin/manager/edit.html', {
+      managerInfo: managerInfo[0],
+      roleInfo
+    })
+  }
+  async doEdit() {
+    console.log(this.ctx.request.body)
+    const {_id, username, mobile, email, password, role_id} = this.ctx.request.body
+
+    if(password) {
+      const pwd = await this.service.tools.md5(password)
+      await this.ctx.model.Admin.updateOne({
+        _id: _id
+      },{
+        password: pwd,
+        mobile,
+        email,
+        role_id
+      })
+    } else {
+      await this.ctx.model.Admin.updateOne({
+        _id: _id
+      },{
+        mobile,
+        email,
+        role_id
+      })
+    }
+    await this.success('/admin/manager', '管理员信息更新成功！')
+    // const managerInfo = this.ctx.model.Admin.update({
+    //   _id: _id
+    // },{
+
+    // })
   }
   async delete() {
     this.ctx.body = '管理员删除'
