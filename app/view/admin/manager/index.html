@@ -45,7 +45,7 @@
               <td><%=managerList[i].email%></td>
               <td class="text-center">
                 <a href="/admin/manager/edit?id=<%=managerList[i]._id%>">修改</a>
-                <a href="/admin/manager/edit">删除</a>
+                <a href="/admin/delete?model=Admin&_id=<%=managerList[i]._id%>">删除</a>
               </td>
             </tr>
             <%}%>

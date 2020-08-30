@@ -70,14 +70,6 @@ class ManagerController extends BaseController {
       })
     }
     await this.success('/admin/manager', '管理员信息更新成功！')
-    // const managerInfo = this.ctx.model.Admin.update({
-    //   _id: _id
-    // },{
-
-    // })
-  }
-  async delete() {
-    this.ctx.body = '管理员删除'
   }
 }
 
