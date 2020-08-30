@@ -15,7 +15,7 @@ class LoginController extends baseController {
     }else {
       const dbResult = await this.ctx.model.Admin.find({
         "username": username,
-        "password": password
+        "password": md5(password)
       })
       if(dbResult.length >0) {
         this.ctx.session.userinfo = dbResult[0]
