@@ -18,6 +18,7 @@ module.exports = app => {
   // admin 管理员相关路由
   router.get('/admin/manager', controller.admin.manager.index);
   router.get('/admin/manager/add', controller.admin.manager.add);
+  router.post('/admin/manager/doAdd', controller.admin.manager.doAdd);
   router.get('/admin/manager/edit', controller.admin.manager.edit);
   // admin 角色相关路由
   router.get('/admin/role', controller.admin.role.index);

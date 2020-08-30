@@ -14,11 +14,8 @@ module.exports = app => {
     add_time: {
       type: Number,
       default: d.getTime()
-
     },
-    is_super: { type: Number }
-
-
+    is_super: { type: Number, default: 0 }
   });
 
   const AdminModel = mongoose.model('Admin', AdminSchema, 'admin')

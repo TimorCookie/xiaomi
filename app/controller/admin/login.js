@@ -14,13 +14,10 @@ class LoginController extends baseController {
       await this.error('/admin/login','验证码错误!')
     }else {
       const pwd = await this.service.tools.md5(password)
-      console.log(pwd)
-      console.log(password)
       const dbResult = await this.ctx.model.Admin.find({
         "username": username,
         "password": pwd
       })
-      console.log(dbResult)
       if(dbResult.length >0) {
         this.ctx.session.userinfo = dbResult[0]
         this.ctx.redirect('/admin/manager')
