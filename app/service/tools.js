@@ -6,7 +6,7 @@ const md5 = require('md5');
 class ToolsService extends Service {
   async captcha() {
     const captcha = svgCaptcha.create({
-      size: 6,
+      size: 4,
       fontSize: 50,
       width: 100,
       height: 40,
