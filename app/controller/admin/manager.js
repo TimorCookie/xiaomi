@@ -3,12 +3,23 @@
 const BaseController = require('./base')
 class ManagerController extends BaseController {
   async index() {
-    await this.ctx.render('admin/manager/index.html')
+    const managerList = await this.ctx.model.Admin.aggregate([
+      {
+        $lookup: {
+          from: 'role',
+          localField: 'role_id',
+          foreignField: '_id',
+          as: 'role'
+        }
+      }
+    ])
+    console.log(managerList[0])
+    await this.ctx.render('admin/manager/index.html', { managerList })
     // this.ctx.body = '管理员列表'
   }
   async add() {
     const roleList = await this.ctx.model.Role.find({})
-    await this.ctx.render('admin/manager/add.html', {roleList})
+    await this.ctx.render('admin/manager/add.html', { roleList })
   }
   async doAdd() {
     const userInfo = this.ctx.request.body
@@ -17,12 +28,12 @@ class ManagerController extends BaseController {
     const userRes = await this.ctx.model.Admin.find({
       username: userInfo.username
     })
-    if(userRes.length > 0) {
+    if (userRes.length > 0) {
       await this.error('/admin/manager/add', '此用户已存在')
     } else {
       const newUser = new this.ctx.model.Admin(userInfo)
       newUser.save()
-      await this.success('/admin/manager','增加用户成功')
+      await this.success('/admin/manager', '增加用户成功')
     }
   }
   async edit() {
