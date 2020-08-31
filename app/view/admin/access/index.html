@@ -9,7 +9,7 @@
     <div class="col-sm-10">
       <div class="panel panel-default">
         <div class="panel-heading">
-          搜索角色
+          搜索权限
         </div>
         <div class="panel-body">
           <form role="form" class="form-inline">
@@ -30,45 +30,55 @@
       <div class="table-responsive">
         <table class="table table-bordered">
           <thead>
-            <tr class="th">
-              <th>编号</th>
-              <th>图标</th>
-              <th>名称</th>
-              <th>价格</th>
-              <th>邮费</th>
+            <th>模块名称</th>
+            <th>节点类型</th>
+            <th>操作名称</th>
+            <th>操作地址</th>
+            <th>排序</th>
+            <th>描述</th>
 
-              <th class="text-center">操作</th>
+            <th class="text-center">操作</th>
             </tr>
           </thead>
           <tbody>
-
-            <tr>
-              <td>1</td>
-              <td>图标</td>
-              <td>背包1111111</td>
-              <td>20元</td>
-              <td>10元</td>
-
-              <td class="text-center">修改 删除</td>
+            <%for(var i = 0; i<menus.length; i++){%>
+              <tr>
+                <td><%=menus[i].module_name%></td>
+                <td>
+                  <%if(menus[i].type==1){%>
+                  模块
+                  <%}else if(menus[i].type==2){%>
+                  菜单
+                  <%}else{%>
+                  操作
+                  <%}%>
+                </td>
+                <td><%=menus[i].action_name%></td>
+                <td><%=menus[i].url%></td>
+                <td><%=menus[i].sort%></td>
+                <td><%=menus[i].description%></td>
+                <td class="text-center">修改  删除</td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>图标</td>
-              <td>thinpad笔记本电脑</td>
-              <td>20元</td>
-              <td>10元</td>
-
-              <td class="text-center">修改 删除</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>图标</td>
-              <td>iphone7</td>
-              <td>20元</td>
-              <td>10元</td>
-
-              <td class="text-center">修改 删除</td>
-            </tr>
+            <%for(var j =0; j <menus[i].items.length; j++){%>
+              <tr>
+                <td>---<%=menus[i].items[j].module_name%></td>
+                <td>
+                  <%if(menus[i].items[j].type==1){%>
+                  模块
+                  <%}else if(menus[i].items[j].type==2){%>
+                  菜单
+                  <%}else{%>
+                  操作
+                  <%}%>
+                </td>
+                <td><%=menus[i].items[j].action_name%></td>
+                <td><%=menus[i].items[j].url%></td>
+                <td><%=menus[i].items[j].sort%></td>
+                <td><%=menus[i].items[j].description%></td>
+                <td class="text-center">修改  删除</td>
+              </tr>
+            <%}%>
+            <%}%>
 
           </tbody>
         </table>

@@ -16,6 +16,7 @@
 * 增加管理员账号删除功能 ([3740275](https://github.com/TimorCookie/xiaomi/commit/37402759f08ac3145ccff373757731da6f84c84e))
 * 封装公共删除方法 ([d6533d4](https://github.com/TimorCookie/xiaomi/commit/d6533d43bdde853176e2adcc94850bc5aa0a3883))
 * 添加ejs模版 ([a2ea7c2](https://github.com/TimorCookie/xiaomi/commit/a2ea7c2750b75e4b81428cfb00862ca6b626c51c))
+* 添加git规范和changelog ([ef16c0c](https://github.com/TimorCookie/xiaomi/commit/ef16c0c6bbb22ad76eda0f220811bbd01b66978e))
 * 添加中间件拦截未登录admin访问 ([a7ddd95](https://github.com/TimorCookie/xiaomi/commit/a7ddd95aa1fc5226d0436293da2024cbea1a4150))
 * 添加新增角色功能 ([f1b5455](https://github.com/TimorCookie/xiaomi/commit/f1b5455361d5240e1416c857cefcec3274cfe15f))
 * 添加管理员信息更新功能 ([95cf7c5](https://github.com/TimorCookie/xiaomi/commit/95cf7c53f2e38ec2293712b41daa70dd95b73adf))
