@@ -4,7 +4,7 @@ const Controller = require('egg').Controller;
 
 class BaseController extends Controller {
   async success(redirectUrl, text) {
-    await this.ctx.render('admin/public/success.html',{
+    await this.ctx.render('admin/public/success.html', {
       redirectUrl: redirectUrl,
       text: text
     })
@@ -22,7 +22,7 @@ class BaseController extends Controller {
     this.ctx.body = captcha.data
   }
   async delete() {
-    const {model ,_id}= this.ctx.request.query
+    const { model, _id } = this.ctx.request.query
     console.log(model, _id)
     await this.ctx.model[model].deleteOne({
       _id

@@ -48,13 +48,13 @@ class ManagerController extends BaseController {
   }
   async doEdit() {
     console.log(this.ctx.request.body)
-    const {_id, username, mobile, email, password, role_id} = this.ctx.request.body
+    const { _id, username, mobile, email, password, role_id } = this.ctx.request.body
 
-    if(password) {
+    if (password) {
       const pwd = await this.service.tools.md5(password)
       await this.ctx.model.Admin.updateOne({
         _id: _id
-      },{
+      }, {
         password: pwd,
         mobile,
         email,
@@ -63,7 +63,7 @@ class ManagerController extends BaseController {
     } else {
       await this.ctx.model.Admin.updateOne({
         _id: _id
-      },{
+      }, {
         mobile,
         email,
         role_id
