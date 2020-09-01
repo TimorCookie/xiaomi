@@ -26,7 +26,6 @@ class AccessController extends BaseController {
   }
   async add() {
     const modules = await this.ctx.model.Access.find({ "module_id": "0" })
-    console.log(modules)
     await this.ctx.render('admin/access/add.html', { modules })
   }
   async doAdd() {
@@ -35,10 +34,8 @@ class AccessController extends BaseController {
 
     //菜单  或者操作
     if (module_id !== '0') {
-      console.log(module_id)
       addResult.module_id = this.app.mongoose.Types.ObjectId(module_id);    //调用mongoose里面的方法把字符串转换成ObjectId
     }
-    console.log(addResult)
     var access = new this.ctx.model.Access(addResult);
 
     access.save();
@@ -46,7 +43,28 @@ class AccessController extends BaseController {
     await this.success('/admin/access', '增加权限成功');
   }
   async edit() {
-    await this.ctx.render('admin/access/edit.html')
+    const _id = this.ctx.request.query.id
+    const modules = await this.ctx.model.Access.find({
+      module_id: "0"
+    })
+    const menuInfo = await this.ctx.model.Access.find({_id})
+    await this.ctx.render('admin/access/edit.html', {
+      menuInfo: menuInfo[0],
+      modules
+    })
+  }
+  async doEdit() {
+    const reqRes = this.ctx.request.body
+    
+    if(reqRes.module_id!=='0') {
+      reqRes.module_id = this.app.mongoose.Types.ObjectId(reqRes.module_id);  
+    }
+    const updateAccess =await this.ctx.model.Access.updateOne({
+      _id: reqRes._id
+    },reqRes)
+    // updateAccess.save()
+
+    await this.success('/admin/access', '修改权限成功');
   }
 }
 

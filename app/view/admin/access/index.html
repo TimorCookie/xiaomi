@@ -57,7 +57,7 @@
                 <td><%=menus[i].url%></td>
                 <td><%=menus[i].sort%></td>
                 <td><%=menus[i].description%></td>
-                <td class="text-center">修改  删除</td>
+                <td class="text-center"><a href="/admin/access/edit?id=<%=menus[i]._id%>">修改</a></td>
             </tr>
             <%for(var j =0; j <menus[i].items.length; j++){%>
               <tr>
@@ -75,7 +75,10 @@
                 <td><%=menus[i].items[j].url%></td>
                 <td><%=menus[i].items[j].sort%></td>
                 <td><%=menus[i].items[j].description%></td>
-                <td class="text-center">修改  删除</td>
+                <td class="text-center">
+                  <a href="/admin/access/edit?id=<%=menus[i].items[j]._id%>">修改</a>
+                  <a href="/admin/access/delete">删除</a>
+                </td>
               </tr>
             <%}%>
             <%}%>
