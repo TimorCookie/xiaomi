@@ -77,7 +77,7 @@
                 <td><%=menus[i].items[j].description%></td>
                 <td class="text-center">
                   <a href="/admin/access/edit?id=<%=menus[i].items[j]._id%>">修改</a>
-                  <a href="/admin/access/delete">删除</a>
+                  <a href="/admin/delete?model=Access&_id=<%=menus[i].items[j]._id%>">删除</a>
                 </td>
               </tr>
             <%}%>
