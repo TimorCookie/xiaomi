@@ -13,6 +13,7 @@ class ManagerController extends BaseController {
         }
       }
     ])
+    console.log(managerList)
     await this.ctx.render('admin/manager/index.html', { managerList })
     // this.ctx.body = '管理员列表'
   }

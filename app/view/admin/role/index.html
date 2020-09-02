@@ -38,12 +38,16 @@
           </thead>
           <tbody>
             <%for(var i=0; i<roleList.length; i++){%>
-            <tr>
-              <td><%=roleList[i].title%></td>
-              <td><%=roleList[i].description%></td>
-              <td><%=roleList[i].add_time%></td>
-              <td class="text-center"><a href="/admin/role/edit?id=<%=roleList[i]._id%>">修改</a> 　<a href="/admin/delete?model=Role&_id=<%=roleList[i]._id%>">删除</a></td>
-            </tr>
+              <tr>
+                <td><%=roleList[i].title%></td>
+                <td><%=roleList[i].description%></td>
+                <td><%=roleList[i].add_time%></td>
+                <td class="text-center">
+                  <a href="/admin/role/auth?id=<%=roleList[i]._id%>">授权</a>
+                  <a href="/admin/role/edit?id=<%=roleList[i]._id%>">修改</a>
+                  <a href="/admin/delete?model=Role&_id=<%=roleList[i]._id%>">删除</a>
+                </td>
+              </tr>
             <%}%>
           </tbody>
         </table>
