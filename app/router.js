@@ -35,4 +35,6 @@ module.exports = app => {
   router.post('/admin/access/doAdd', controller.admin.access.doAdd);
   router.get('/admin/access/edit', controller.admin.access.edit);
   router.post('/admin/access/doEdit', controller.admin.access.doEdit);
+  // 公共的ajax请求
+  router.get('/admin/changeStatus', controller.admin.base.changeStatus);
 };

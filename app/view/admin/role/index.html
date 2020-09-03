@@ -33,21 +33,32 @@
               <th>角色名称</th>
               <th>描述</th>
               <th>增加时间</th>
+              <th class="text-center">状态</th>
               <th class="text-center">操作</th>
             </tr>
           </thead>
           <tbody>
             <%for(var i=0; i<roleList.length; i++){%>
-              <tr>
-                <td><%=roleList[i].title%></td>
-                <td><%=roleList[i].description%></td>
-                <td><%=roleList[i].add_time%></td>
+            <tr>
+              <td><%=roleList[i].title%></td>
+              <td><%=roleList[i].description%></td>
+              <td><%=roleList[i].add_time%></td>
+              <td class="text-center">
+                <%if(roleList[i].status==1){%>
+                  <img src="/public/admin/images/yes.gif"
+                    onclick="app.changeStatus(this,'Role','status','<%=roleList[i]._id%>')" />
+
+                  <%}else{%>
+                  <img src="/public/admin/images/no.gif"
+                    onclick="app.changeStatus(this,'Role','status','<%=roleList[i]._id%>')" />
+                <%}%>
+              </td>
                 <td class="text-center">
                   <a href="/admin/role/auth?id=<%=roleList[i]._id%>">授权</a>
-                  <a href="/admin/role/edit?id=<%=roleList[i]._id%>">修改</a>
-                  <a href="/admin/delete?model=Role&_id=<%=roleList[i]._id%>">删除</a>
-                </td>
-              </tr>
+                <a href="/admin/role/edit?id=<%=roleList[i]._id%>">修改</a>
+                <a href="/admin/delete?model=Role&_id=<%=roleList[i]._id%>">删除</a>
+              </td>
+            </tr>
             <%}%>
           </tbody>
         </table>
