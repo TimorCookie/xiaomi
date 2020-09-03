@@ -7,7 +7,13 @@ module.exports = options => {
     // 未登录的用户跳去登录页
     if (ctx.session.userinfo) {
       ctx.state.userinfo = ctx.session.userinfo
-      await next()
+      
+      if(await ctx.service.admin.checkAuth()) {
+        await next()
+      } else {
+        ctx.body = '您没有权限访问当前地址'
+      }
+      
     } else {
       const pathname = url.parse(ctx.request.url).pathname
       if (pathname == '/admin/login' || pathname == '/admin/verify' || pathname == '/admin/doLogin') {

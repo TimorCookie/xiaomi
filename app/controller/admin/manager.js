@@ -13,7 +13,7 @@ class ManagerController extends BaseController {
         }
       }
     ])
-    console.log(managerList)
+    // console.log(managerList)
     await this.ctx.render('admin/manager/index.html', { managerList })
     // this.ctx.body = '管理员列表'
   }
@@ -48,7 +48,7 @@ class ManagerController extends BaseController {
     })
   }
   async doEdit() {
-    console.log(this.ctx.request.body)
+    // console.log(this.ctx.request.body)
     const { _id, username, mobile, email, password, role_id } = this.ctx.request.body
 
     if (password) {

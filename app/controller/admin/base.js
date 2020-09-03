@@ -23,7 +23,7 @@ class BaseController extends Controller {
   }
   async delete() {
     const { model, _id } = this.ctx.request.query
-    console.log(model, _id)
+    // console.log(model, _id)
     await this.ctx.model[model].deleteOne({
       _id
     })

@@ -58,7 +58,7 @@ class RoleController extends BaseController {
       accessArray.push(el.access_id.toString())
     })
 
-    console.log(accessArray)
+    // console.log(accessArray)
     // 3.遍历全部权限数据 判断当前权限是否在角色权限数组中
     menus.map((e,i)=> {
       if(accessArray.indexOf(e._id.toString())!=-1) {
@@ -70,7 +70,7 @@ class RoleController extends BaseController {
         }
       })
     })
-    console.log(menus)
+    // console.log(menus)
     await this.ctx.render('/admin/role/auth', { menus, role_id })
   }
   async doAuth() {
