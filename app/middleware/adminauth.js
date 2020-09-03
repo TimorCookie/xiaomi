@@ -4,10 +4,12 @@ module.exports = options => {
   return async function adminauth(ctx, next) {
     ctx.state.csrf = ctx.csrf;
     ctx.state.prevPage = ctx.request.headers['referer']
+    
+    
     // 未登录的用户跳去登录页
     if (ctx.session.userinfo) {
       ctx.state.userinfo = ctx.session.userinfo
-      
+      ctx.state.menuList = await ctx.service.admin.getMenuList()
       if(await ctx.service.admin.checkAuth()) {
         await next()
       } else {
