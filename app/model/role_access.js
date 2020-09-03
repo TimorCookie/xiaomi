@@ -6,7 +6,7 @@ module.exports = app => {
     role_id:{
       type: Schema.Types.ObjectId
     },
-    access_node: {
+    access_id: {
       type: Schema.Types.ObjectId
     }
   })
