@@ -39,5 +39,7 @@ module.exports = app => {
   router.get('/admin/changeStatus', controller.admin.base.changeStatus);
   // 轮播图
   router.get('/admin/focus', controller.admin.focus.index);
+  router.get('/admin/focus/multi', controller.admin.focus.multi);
   router.post('/admin/focus/doSingleUpload', controller.admin.focus.doSingleUpload);
+  router.post('/admin/focus/doMultiUpload', controller.admin.focus.doMultiUpload);
 };

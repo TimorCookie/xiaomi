@@ -15,11 +15,36 @@ class FocusController extends Controller {
     const target = `app/public/admin/upload/${path.basename(stream.filename)}`
     const writeStream = fs.createWriteStream(target)
 
-    await pump(stream,writeStream)
+    await pump(stream, writeStream)
 
     this.ctx.body = {
       url: target,
       fields: stream.fields
+    }
+  }
+  async multi() {
+    await this.ctx.render('admin/focus/multi')
+  }
+  async doMultiUpload() {
+    const parts = this.ctx.multipart({ autoFields: true })
+    const files = []
+    let stream;
+    while ((stream = await parts()) != null) {
+      if (!stream.filename) {            //注意如果没有传入图片直接返回   
+        return;
+      }        
+      const fieldname = stream.fieldname;
+      const target = `app/public/admin/upload/${path.basename(stream.filename)}`
+      const writeStream = fs.createWriteStream(target)
+
+      await pump(stream, writeStream)
+      files.push({
+        [fieldname]: target
+      })
+    }
+    this.ctx.body = {
+      files: files,
+      fields: parts.field
     }
   }
 }

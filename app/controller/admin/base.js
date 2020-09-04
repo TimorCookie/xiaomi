@@ -38,7 +38,7 @@ class BaseController extends Controller {
           [attr]: 0
         }
       } else {
-       var json = {
+      var json = {
           [attr]: 1
         }
       }
