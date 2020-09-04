@@ -37,4 +37,7 @@ module.exports = app => {
   router.post('/admin/access/doEdit', controller.admin.access.doEdit);
   // 公共的ajax请求
   router.get('/admin/changeStatus', controller.admin.base.changeStatus);
+  // 轮播图
+  router.get('/admin/focus', controller.admin.focus.index);
+  router.post('/admin/focus/doSingleUpload', controller.admin.focus.doSingleUpload);
 };
