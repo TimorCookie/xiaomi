@@ -7,18 +7,24 @@
     <div class="col-sm-10">
       <div class="panel panel-default">
         <div class="panel-heading">
-          上传图片 -单个图片/文件
+          增加轮播图
         </div>
         <div class="panel-body">
           <div class="table-responsive input-form">
             <form action="/admin/focus/doSingleUpload?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
               <ul>
-                <li> 图片名称: <input type="text" name="title" /></li>
-                <li> 文件: <input type="file" name="pic" /></li>
-                <li>
-                  图片描述:
-                  <textarea name="description" id="" cols="60" rows="8"></textarea>
+                <li> 分    类:
+                  <select name="type" id="type">
+                    <option value="1">网站</option>
+                    <option value="2">app</option>
+                    <option value="3">小程序</option>
+                  </select>
                 </li>
+                <li> 图片名称: <input type="text" name="title" /></li>
+                <li> 跳转地址: <input type="text" name="link" /></li>
+                <li> 轮 播 图: <input type="file" name="focus_img" /></li>
+                <li> 排    序: <input type="text" name="sort" value="10000"></li>
+                <li> 状    态: <input type="radio" name="status" checked value="1" id="a"/> <label for="a">显示</label>    <input type="radio" name="status" value="0" id="b"/><label for="b">隐藏</label></li>
                 <li>
                   <br />
                   <button type="submit" class="btn btn-primary">提交</button>
