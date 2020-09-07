@@ -40,6 +40,8 @@ module.exports = app => {
   // 轮播图
   router.get('/admin/focus', controller.admin.focus.index);
   router.get('/admin/focus/add', controller.admin.focus.add);
+  router.get('/admin/focus/edit', controller.admin.focus.edit);
+  router.post('/admin/focus/doEdit', controller.admin.focus.doEdit);
   router.get('/admin/focus/multi', controller.admin.focus.multi);
   router.post('/admin/focus/doSingleUpload', controller.admin.focus.doSingleUpload);
   router.post('/admin/focus/doMultiUpload', controller.admin.focus.doMultiUpload);
