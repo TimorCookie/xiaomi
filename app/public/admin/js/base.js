@@ -1,6 +1,7 @@
 $(function () {
 
   app.init();
+  app.delete();
 })
 
 
@@ -10,6 +11,15 @@ var app = {
   init: function () {
     this.toggleAside();
 
+  },
+  delete: function() {
+    $('.delete').click(function(){
+
+			var flag=confirm('您确定要删除吗?');
+
+			return flag;
+
+		})
   },
   toggleAside: function () {
 
