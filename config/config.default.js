@@ -13,7 +13,8 @@ module.exports = appInfo => {
    * @type {Egg.EggAppConfig}
    **/
   const config = exports = {};
-
+  // 图片上传保存路径
+  config.uploadDir='app/public/admin/upload';
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1598411138544_8062';
   // 配置session
