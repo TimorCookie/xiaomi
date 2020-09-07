@@ -79,3 +79,8 @@ input[type=file]{
 .navbar{
 	border-radius: 0px;
 }
+
+
+.focus_img {
+  max-width: 200px;
+}

@@ -8,7 +8,10 @@ const BaseController = require('./base')
 
 class FocusController extends BaseController {
   async index() {
-    await this.ctx.render('admin/focus/index');
+    const focusRes = await this.ctx.model.Focus.find({})
+    await this.ctx.render('admin/focus/index',{
+      focusRes
+    });
   }
   async add() {
     await this.ctx.render('admin/focus/add');
