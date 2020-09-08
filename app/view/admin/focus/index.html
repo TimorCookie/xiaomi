@@ -1,63 +1,56 @@
 <%- include ../public/page_header.html %>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-2">
-      <%- include ../public/page_aside.html %>
-    </div>
-    <div class="col-sm-10">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          轮播图列表
-        </div>
-        <div class="panelbody">
-          <div class="table-responsive">
-            <table class="table table-bordered">
-              <thead>
-                <tr class="th">
-                  <th>名称</th>
-                  <th>分类</th>
-                  <th>图片</th>
-                  <th>跳转地址</th>
-                  <th class="text-center">排序</th>
-                  <th class="text-center">状态</th>
-                  <th class="text-center">操作</th>
-                </tr>
-              </thead>
-              <tbody>
-                <%for(var i =0; i<focusRes.length; i++){%>
-                <tr>
-                  <td><%=focusRes[i].title%></td>
-                  <td>
-                    <%if(focusRes[i].type===1){%>网站<%}else if(focusRes[i].type===2){%>app<%}else {%>小程序<%}%>
-                  </td>
-                  <td>
-                    <img src="<%=focusRes[i].focus_img%>" alt="" class="focus_img">
-                  </td>
-                  <td><%=focusRes[i].link%></td>
-                  <td class="text-center">
-                    <span  onclick="app.editNum(this,'Focus','sort','<%=focusRes[i]._id%>')" class="sort_num"><%=focusRes[i].sort%></span>
-                  </td>
-                  <td>
-                    <%if(focusRes[i].status==1){%>
-                    <img src="/public/admin/images/yes.gif"
-                      onclick="app.changeStatus(this,'Focus','status','<%=focusRes[i]._id%>')" />
-                    <%}else{%>
-                    <img src="/public/admin/images/no.gif"
-                      onclick="app.changeStatus(this,'Focus','status','<%=focusRes[i]._id%>')" />
-                    <%}%>
-                  </td>
-                  <td>
-                    <a href="/admin/focus/edit?id=<%=focusRes[i]._id%>">修改</a>　<a class="delete"
-                    href="/admin/delete?model=Focus&_id=<%=focusRes[i]._id%>">删除</a>
-                  </td>
-                </tr>
-                <%}%>
-              </tbody>
-            </table>
-          </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        轮播图列表
+      </div>
+      <div class="panelbody">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr class="th">
+                <th>名称</th>
+                <th>分类</th>
+                <th>图片</th>
+                <th>跳转地址</th>
+                <th class="text-center">排序</th>
+                <th class="text-center">状态</th>
+                <th class="text-center">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%for(var i =0; i<focusRes.length; i++){%>
+              <tr>
+                <td><%=focusRes[i].title%></td>
+                <td>
+                  <%if(focusRes[i].type===1){%>网站<%}else if(focusRes[i].type===2){%>app<%}else {%>小程序<%}%>
+                </td>
+                <td>
+                  <img src="<%=focusRes[i].focus_img%>" alt="" class="focus_img">
+                </td>
+                <td><%=focusRes[i].link%></td>
+                <td class="text-center">
+                  <span  onclick="app.editNum(this,'Focus','sort','<%=focusRes[i]._id%>')" class="sort_num"><%=focusRes[i].sort%></span>
+                </td>
+                <td>
+                  <%if(focusRes[i].status==1){%>
+                  <img src="/public/admin/images/yes.gif"
+                    onclick="app.changeStatus(this,'Focus','status','<%=focusRes[i]._id%>')" />
+                  <%}else{%>
+                  <img src="/public/admin/images/no.gif"
+                    onclick="app.changeStatus(this,'Focus','status','<%=focusRes[i]._id%>')" />
+                  <%}%>
+                </td>
+                <td>
+                  <a href="/admin/focus/edit?id=<%=focusRes[i]._id%>">修改</a>　<a class="delete"
+                  href="/admin/delete?model=Focus&_id=<%=focusRes[i]._id%>">删除</a>
+                </td>
+              </tr>
+              <%}%>
+            </tbody>
+          </table>
         </div>
       </div>
-
     </div>
-  </div>
-</div>
+  </body>
+</html>

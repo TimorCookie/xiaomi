@@ -8,7 +8,7 @@
 
           <%if((menuList[i].items[j].checked && menuList[i].items[j].type!=3) || (userinfo.is_super==1 && menuList[i].items[j].type!=3)){%>
             <li class="list-group-item"> 
-              <a href="<%=menuList[i].items[j].url%>"> <%=menuList[i].items[j].module_name %></a>
+              <a href="<%=menuList[i].items[j].url%>" target="rightMain"> <%=menuList[i].items[j].module_name %></a>
             </li>
           <%}%>
             

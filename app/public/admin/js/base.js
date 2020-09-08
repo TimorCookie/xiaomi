@@ -2,6 +2,7 @@ $(function () {
 
   app.init();
   app.delete();
+  app.resizeIframe()
 })
 
 
@@ -72,6 +73,13 @@ var app = {
         console.log(data)
       })
     })
-  }
+  },
+  // 设置iframe高度
+  resizeIframe:function(){
+
+		var heights = document.documentElement.clientHeight-100;	
+		
+		document.getElementById('rightMain').height = heights
+	},
 }
 

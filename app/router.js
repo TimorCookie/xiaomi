@@ -16,6 +16,8 @@ module.exports = app => {
   // 验证码
   router.get('/admin/verify', controller.admin.base.verify);
   // admin 管理员相关路由
+  router.get('/admin', controller.admin.main.index);
+  router.get('/admin/welcome', controller.admin.main.welcome);
   router.get('/admin/manager', controller.admin.manager.index);
   router.get('/admin/manager/add', controller.admin.manager.add);
   router.post('/admin/manager/doAdd', controller.admin.manager.doAdd);

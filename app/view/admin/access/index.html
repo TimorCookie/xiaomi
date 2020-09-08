@@ -1,95 +1,85 @@
 <%- include ../public/page_header.html %>
 
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-2">
-      <%- include ../public/page_aside.html %>
-    </div>
-    <div class="col-sm-10">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          搜索权限
-        </div>
-        <div class="panel-body">
-          <form role="form" class="form-inline">
-            <div class="form-group">
-              <label for="name">名称</label>
-              <input type="text" class="form-control" id="name" placeholder="请输入名称">
-            </div>
 
-            <div class="form-group">
-              <button type="submit" class="btn btn-default">开始搜索</button>
-            </div>
-          </form>
-        </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        搜索权限
       </div>
-      <!--
-                列表展示
-            -->
-      <div class="table-responsive">
-        <table class="table table-bordered">
-          <thead>
-            <th>模块名称</th>
-            <th>节点类型</th>
-            <th>操作名称</th>
-            <th>操作地址</th>
-            <th>排序</th>
-            <th>描述</th>
+      <div class="panel-body">
+        <form role="form" class="form-inline">
+          <div class="form-group">
+            <label for="name">名称</label>
+            <input type="text" class="form-control" id="name" placeholder="请输入名称">
+          </div>
 
-            <th class="text-center">操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            <%for(var i = 0; i<menus.length; i++){%>
-              <tr>
-                <td><%=menus[i].module_name%></td>
-                <td>
-                  <%if(menus[i].type==1){%>
-                  模块
-                  <%}else if(menus[i].type==2){%>
-                  菜单
-                  <%}else{%>
-                  操作
-                  <%}%>
-                </td>
-                <td><%=menus[i].action_name%></td>
-                <td><%=menus[i].url%></td>
-                <td><%=menus[i].sort%></td>
-                <td><%=menus[i].description%></td>
-                <td class="text-center"><a href="/admin/access/edit?id=<%=menus[i]._id%>">修改</a></td>
-            </tr>
-            <%for(var j =0; j <menus[i].items.length; j++){%>
-              <tr>
-                <td>---<%=menus[i].items[j].module_name%></td>
-                <td>
-                  <%if(menus[i].items[j].type==1){%>
-                  模块
-                  <%}else if(menus[i].items[j].type==2){%>
-                  菜单
-                  <%}else{%>
-                  操作
-                  <%}%>
-                </td>
-                <td><%=menus[i].items[j].action_name%></td>
-                <td><%=menus[i].items[j].url%></td>
-                <td><%=menus[i].items[j].sort%></td>
-                <td><%=menus[i].items[j].description%></td>
-                <td class="text-center">
-                  <a href="/admin/access/edit?id=<%=menus[i].items[j]._id%>">修改</a>
-                  <a href="/admin/delete?model=Access&_id=<%=menus[i].items[j]._id%>">删除</a>
-                </td>
-              </tr>
-            <%}%>
-            <%}%>
-
-          </tbody>
-        </table>
+          <div class="form-group">
+            <button type="submit" class="btn btn-default">开始搜索</button>
+          </div>
+        </form>
       </div>
-
     </div>
-  </div>
-</div>
+    <!-- 列表展示 -->
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <th>模块名称</th>
+          <th>节点类型</th>
+          <th>操作名称</th>
+          <th>操作地址</th>
+          <th>排序</th>
+          <th>描述</th>
+
+          <th class="text-center">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%for(var i = 0; i<menus.length; i++){%>
+            <tr>
+              <td><%=menus[i].module_name%></td>
+              <td>
+                <%if(menus[i].type==1){%>
+                模块
+                <%}else if(menus[i].type==2){%>
+                菜单
+                <%}else{%>
+                操作
+                <%}%>
+              </td>
+              <td><%=menus[i].action_name%></td>
+              <td><%=menus[i].url%></td>
+              <td><%=menus[i].sort%></td>
+              <td><%=menus[i].description%></td>
+              <td class="text-center"><a href="/admin/access/edit?id=<%=menus[i]._id%>">修改</a></td>
+          </tr>
+          <%for(var j =0; j <menus[i].items.length; j++){%>
+            <tr>
+              <td>---<%=menus[i].items[j].module_name%></td>
+              <td>
+                <%if(menus[i].items[j].type==1){%>
+                模块
+                <%}else if(menus[i].items[j].type==2){%>
+                菜单
+                <%}else{%>
+                操作
+                <%}%>
+              </td>
+              <td><%=menus[i].items[j].action_name%></td>
+              <td><%=menus[i].items[j].url%></td>
+              <td><%=menus[i].items[j].sort%></td>
+              <td><%=menus[i].items[j].description%></td>
+              <td class="text-center">
+                <a href="/admin/access/edit?id=<%=menus[i].items[j]._id%>">修改</a>
+                <a href="/admin/delete?model=Access&_id=<%=menus[i].items[j]._id%>">删除</a>
+              </td>
+            </tr>
+          <%}%>
+          <%}%>
+
+        </tbody>
+      </table>
+    </div>
+
 
 </body>
 
