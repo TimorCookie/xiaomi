@@ -76,10 +76,14 @@ var app = {
   },
   // 设置iframe高度
   resizeIframe:function(){
-
-		var heights = document.documentElement.clientHeight-100;	
-		
-		document.getElementById('rightMain').height = heights
+    var heights = document.documentElement.clientHeight-100
+    if(document.getElementById('rightMain')) {
+      document.getElementById('rightMain').height = heights  
+    }
 	},
 }
 
+$(window).resize(function(){
+
+	app.resizeIframe();
+})
