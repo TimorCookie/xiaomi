@@ -42,7 +42,7 @@
             <tr>
               <td><%=roleList[i].title%></td>
               <td><%=roleList[i].description%></td>
-              <td><%=roleList[i].add_time%></td>
+              <td><%=helper.formateDate(roleList[i].add_time)%></td>
               <td class="text-center">
                 <%if(roleList[i].status==1){%>
                   <img src="/public/admin/images/yes.gif"

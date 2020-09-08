@@ -90,3 +90,28 @@ input[type=file]{
 .sort_num input {
   max-width: 60px;
 }
+
+
+.nav_open {
+  float: right;
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 8px transparent solid;
+  border-right: 8px transparent solid;
+  border-top: 8px #fff solid;
+  border-bottom: none;
+  top: 5px;
+}
+
+.nav_close {
+  float: right;
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 8px transparent solid;
+  border-right: 8px transparent solid;
+  border-top: none;
+  border-bottom: 8px #fff solid;
+  top: 5px;
+}

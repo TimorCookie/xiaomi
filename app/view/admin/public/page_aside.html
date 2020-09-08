@@ -2,7 +2,7 @@
   <%for(var i=0; i<menuList.length; i++){%>
     <%if(menuList[i].checked&&menuList[i].type===1){%>
     <li>
-      <h4><%=menuList[i].module_name%></h4>
+      <h4><%=menuList[i].module_name%><span class="nav_open"></span></h4>
       <ul>
         <%for(var j=0; j<menuList[i].items.length; j++){%>
 
