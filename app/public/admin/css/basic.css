@@ -84,3 +84,9 @@ input[type=file]{
 .focus_img {
   max-width: 200px;
 }
+.sort_num {
+  display: block;
+}
+.sort_num input {
+  max-width: 60px;
+}

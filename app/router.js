@@ -37,8 +37,10 @@ module.exports = app => {
   router.post('/admin/access/doEdit', controller.admin.access.doEdit);
   // 公共的ajax请求
   router.get('/admin/changeStatus', controller.admin.base.changeStatus);
+  router.get('/admin/editNum', controller.admin.base.editNum);
   // 轮播图
   router.get('/admin/focus', controller.admin.focus.index);
+  
   router.get('/admin/focus/add', controller.admin.focus.add);
   router.get('/admin/focus/edit', controller.admin.focus.edit);
   router.post('/admin/focus/doEdit', controller.admin.focus.doEdit);
