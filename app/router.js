@@ -42,11 +42,17 @@ module.exports = app => {
   router.get('/admin/editNum', controller.admin.base.editNum);
   // 轮播图
   router.get('/admin/focus', controller.admin.focus.index);
-  
   router.get('/admin/focus/add', controller.admin.focus.add);
   router.get('/admin/focus/edit', controller.admin.focus.edit);
   router.post('/admin/focus/doEdit', controller.admin.focus.doEdit);
   router.get('/admin/focus/multi', controller.admin.focus.multi);
   router.post('/admin/focus/doSingleUpload', controller.admin.focus.doSingleUpload);
   router.post('/admin/focus/doMultiUpload', controller.admin.focus.doMultiUpload);
+
+  // 商品管理模块
+  router.get('/admin/goodsType', controller.admin.goodsType.index)
+  router.get('/admin/goodsType/add', controller.admin.goodsType.add)
+  router.post('/admin/goodsType/doAdd', controller.admin.goodsType.doAdd)
+  router.get('/admin/goodsType/edit', controller.admin.goodsType.edit)
+  router.post('/admin/goodsType/doEdit', controller.admin.goodsType.doEdit)
 };

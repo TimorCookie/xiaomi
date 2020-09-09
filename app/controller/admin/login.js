@@ -20,7 +20,7 @@ class LoginController extends baseController {
       })
       if(dbResult.length >0) {
         this.ctx.session.userinfo = dbResult[0]
-        this.ctx.redirect('/admin/manager')
+        this.ctx.redirect('/admin')
       } else {
         await this.error('/admin/login','账号密码不正确！')
       }
