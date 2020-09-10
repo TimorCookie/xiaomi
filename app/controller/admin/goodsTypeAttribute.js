@@ -34,26 +34,17 @@ class GoodsTypeAttributeController extends BaseController {
 
     const cate_id = this.ctx.request.query.id;
     const goodsTypes = await this.ctx.model.GoodsType.find({});
-
     await this.ctx.render('admin/goodsTypeAttribute/add', {
-
       cate_id: cate_id,
       goodsTypes: goodsTypes
-
     });
 
   }
 
   async doAdd() {
-
-
     var res = new this.ctx.model.GoodsTypeAttribute(this.ctx.request.body);
-
-    await res.save();   //注意
-
-    await this.success('/admin/goodsTypeAttribute?id=' + this.ctx.request.body.cate_id, '增加商品类型属性成功');
-
-
+    await res.save();
+    await this.success(`/admin/goodsTypeAttribute?id=${this.ctx.request.body.cate_id}`, '增加商品类型属性成功');
   }
 
 
@@ -61,16 +52,19 @@ class GoodsTypeAttributeController extends BaseController {
   //功能还没有实现
   async edit() {
 
-
-    this.ctx.body= "编辑"
-
+    const id = this.ctx.request.query.id
+    const res = await this.ctx.model.GoodsTypeAttribute.find({"_id":id})
+    const goodsTypes =await  this.ctx.model.GoodsType.find({})
+    await this.ctx.render('admin/goodsTypeAttribute/edit', {
+      list: res[0],
+      goodsTypes
+    })
   }
 
   async doEdit() {
-
-
-    this.ctx.body= "编辑成功"
-
+    const _id = this.ctx.request.body._id
+    await this.ctx.model.GoodsTypeAttribute.updateOne({"_id": _id},this.ctx.request.body)
+    await this.success(`/admin/goodsTypeAttribute?id=${this.ctx.request.body.cate_id}`,'修改商品类型属性成功');
   }
 
 }
