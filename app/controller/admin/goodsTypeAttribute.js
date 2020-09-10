@@ -19,10 +19,10 @@ class GoodsTypeAttributeController extends BaseController {
         }
       }
     ])
+    const goodsType = await this.ctx.model.GoodsType.find({"_id":cate_id})
 
-    // console.log(result)
     await this.ctx.render('admin/goodsTypeAttribute/index', {
-
+      goodsType: goodsType[0],
       list: result,
       cate_id: cate_id
     });
