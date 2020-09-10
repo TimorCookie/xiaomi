@@ -2,7 +2,6 @@ $(function () {
 
   app.init();
   app.delete();
-  app.resizeIframe()
 })
 
 
